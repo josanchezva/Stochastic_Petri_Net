@@ -1,0 +1,62 @@
+digraph {
+	"IDLE(0)" [label=24 fixedsize=true height=0.6 shape=circle width=0.6 xlabel="IDLE(0)"]
+	"SENDING PACKET(0)" [label=346 fixedsize=true height=0.6 shape=circle width=0.6 xlabel="SENDING PACKET(0)"]
+	"PACKET CHECK(0)" [label=20 fixedsize=true height=0.6 shape=circle width=0.6 xlabel="PACKET CHECK(0)"]
+	"SENDING ACK(0)" [label=17 fixedsize=true height=0.6 shape=circle width=0.6 xlabel="SENDING ACK(0)"]
+	"ACK CHECK(0)" [label=22 fixedsize=true height=0.6 shape=circle width=0.6 xlabel="ACK CHECK(0)"]
+	"IDLE(1)" [label=<&#9679;&#9679;<br/>> fixedsize=true height=0.6 shape=circle width=0.6 xlabel="IDLE(1)"]
+	"SENDING PACKET(1)" [label=446 fixedsize=true height=0.6 shape=circle width=0.6 xlabel="SENDING PACKET(1)"]
+	"ACK CHECK(1)" [label=166 fixedsize=true height=0.6 shape=circle width=0.6 xlabel="ACK CHECK(1)"]
+	"PACKET CHECK(1)" [label=19 fixedsize=true height=0.6 shape=circle width=0.6 xlabel="PACKET CHECK(1)"]
+	"SENDING ACK(1)" [label=10 fixedsize=true height=0.6 shape=circle width=0.6 xlabel="SENDING ACK(1)"]
+	"LOOP(Q11)" [label=22 fixedsize=true height=0.6 shape=circle width=0.6 xlabel="LOOP(Q11)"]
+	"LOOP(Q13)" [label=9 fixedsize=true height=0.6 shape=circle width=0.6 xlabel="LOOP(Q13)"]
+	"LOOP(Q16)" [label=25 fixedsize=true height=0.6 shape=circle width=0.6 xlabel="LOOP(Q16)"]
+	"LOOP(Q18)" [label=12 fixedsize=true height=0.6 shape=circle width=0.6 xlabel="LOOP(Q18)"]
+	q19 [label="" color=black fixedsize=true height=0.2 shape=rectangle width=0.6 xlabel=q19]
+	q19 -> "IDLE(0)"
+	q10 [label="" color=black fixedsize=true height=0.2 shape=rectangle width=0.6 xlabel=q10]
+	"IDLE(0)" -> q10
+	q10 -> "SENDING PACKET(0)"
+	q11 [label="" color=black fixedsize=true height=0.2 shape=rectangle width=0.6 xlabel=q11]
+	"SENDING PACKET(0)" -> q11
+	q11 -> "PACKET CHECK(0)"
+	q11 -> "LOOP(Q11)"
+	q12 [label="" color=black fixedsize=true height=0.2 shape=rectangle width=0.6 xlabel=q12]
+	"PACKET CHECK(0)" -> q12
+	q12 -> "SENDING ACK(0)"
+	q13 [label="" color=black fixedsize=true height=0.2 shape=rectangle width=0.6 xlabel=q13]
+	"SENDING ACK(0)" -> q13
+	q13 -> "ACK CHECK(0)"
+	q13 -> "LOOP(Q13)"
+	q14 [label="" color=black fixedsize=true height=0.2 shape=rectangle width=0.6 xlabel=q14]
+	"ACK CHECK(0)" -> q14
+	q14 -> "IDLE(1)"
+	q15 [label="" color=black fixedsize=true height=0.2 shape=rectangle width=0.6 xlabel=q15]
+	"IDLE(1)" -> q15
+	q15 -> "SENDING PACKET(1)"
+	q16 [label="" color=black fixedsize=true height=0.2 shape=rectangle width=0.6 xlabel=q16]
+	"SENDING PACKET(1)" -> q16
+	q16 -> "PACKET CHECK(1)"
+	q16 -> "LOOP(Q16)"
+	q17 [label="" color=black fixedsize=true height=0.2 shape=rectangle width=0.6 xlabel=q17]
+	"PACKET CHECK(1)" -> q17
+	q17 -> "SENDING ACK(1)"
+	q18 [label="" color=black fixedsize=true height=0.2 shape=rectangle width=0.6 xlabel=q18]
+	"SENDING ACK(1)" -> q18
+	q18 -> "ACK CHECK(1)"
+	q18 -> "LOOP(Q18)"
+	"Tp(0)" [label="" color=black fixedsize=true height=0.2 shape=rectangle width=0.6 xlabel="Tp(0)"]
+	"LOOP(Q11)" -> "Tp(0)"
+	"Tp(0)" -> "SENDING PACKET(0)"
+	"Ta(0)" [label="" color=black fixedsize=true height=0.2 shape=rectangle width=0.6 xlabel="Ta(0)"]
+	"LOOP(Q13)" -> "Ta(0)"
+	"Ta(0)" -> "SENDING PACKET(0)"
+	"Tp(1)" [label="" color=black fixedsize=true height=0.2 shape=rectangle width=0.6 xlabel="Tp(1)"]
+	"LOOP(Q16)" -> "Tp(1)"
+	"Tp(1)" -> "SENDING PACKET(1)"
+	"Ta(1)" [label="" color=black fixedsize=true height=0.2 shape=rectangle width=0.6 xlabel="Ta(1)"]
+	"LOOP(Q18)" -> "Ta(1)"
+	"Ta(1)" -> "SENDING PACKET(1)"
+	"Ta(1)" -> "SENDING PACKET(1)"
+}
